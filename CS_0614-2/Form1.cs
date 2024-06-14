@@ -5,6 +5,8 @@ namespace CS_0614_2
     public partial class Form1 : Form
     {
         static Random random = new Random();
+        
+
         int vx1 = random.Next(-10, 10);
         int vx2 = random.Next(-10, 10);
         int vx3 = random.Next(-10, 10);
