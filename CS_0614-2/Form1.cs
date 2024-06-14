@@ -5,14 +5,15 @@ namespace CS_0614_2
     public partial class Form1 : Form
     {
         static Random random = new Random();
-        
+        int [] vx = new int[3];
+        int [] vy = new int[3]; 
 
-        int vx1 = random.Next(-10, 10);
+        /*int vx1 = random.Next(-10, 10);
         int vx2 = random.Next(-10, 10);
         int vx3 = random.Next(-10, 10);
         int vy1 = random.Next(-10, 10);
         int vy2 = random.Next(-10, 10);
-        int vy3 = random.Next(-10, 10);
+        int vy3 = random.Next(-10, 10);*/
 
         /*int vx1 = 10;
         int vy1 = 10;
@@ -23,6 +24,13 @@ namespace CS_0614_2
         public Form1()
         {
             InitializeComponent();
+
+            vx[0] = random.Next(-10, 11);
+            vy[0] = random.Next(-10, 11);
+            vx[1] = random.Next(-10, 11);
+            vy[1] = random.Next(-10, 11);
+            vx[2] = random.Next(-10, 11);
+            vy[2] = random.Next(-10, 11);
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -32,88 +40,88 @@ namespace CS_0614_2
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            label1.Left += vx1;
-            label1.Top += vy1;
+            label1.Left += vx[0];
+            label1.Top += vy[0];
 
             if (label1.Left < 0)
             {
-                vx1 = Math.Abs(vx1);
+                vx[0] = Math.Abs(vx[0]);
             }
             else if (label1.Left > (ClientSize.Width - label1.Width))
             {
-                vx1 = -Math.Abs(vx1);
-                timer1.Enabled = false;
+                vx[0] = -Math.Abs(vx[0]);
+                //timer1.Enabled = false;
             }
             if (label1.Top < 0)
             {
-                vy1 = Math.Abs(vx1);
+                vy[0] = Math.Abs(vy[0]);
             }
             else if (label1.Top > (ClientSize.Height - label1.Height))
             {
-                vy1 = -Math.Abs(vx1);
+                vy[0] = -Math.Abs(vy[0]);
             }
 
-            if (timer1.Enabled == false && timer2.Enabled == false && timer3.Enabled == false)
+            /*if (timer1.Enabled == false && timer2.Enabled == false && timer3.Enabled == false)
             {
                 timer1.Enabled = true;
                 timer2.Enabled = true;
                 timer3.Enabled = true;
-            }
+            }*/
         }
 
         private void timer2_Tick(object sender, EventArgs e)
         {
-            label2.Left += vx2;
-            label2.Top += vy2;
+            label2.Left += vx[1];
+            label2.Top += vy[1];
             if (label2.Left < 0)
             {
-                vx2 = Math.Abs(vx2);
+            vx[1] = Math.Abs(vx[1]);
             }
             else if (label2.Left > (ClientSize.Width - label2.Width))
             {
-                vx2 = -Math.Abs(vx2);
-                timer2.Enabled = false;
+            vx[1] = -Math.Abs(vx[1]);
+                //timer2.Enabled = false;
             }
             if (label2.Top < 0)
             {
-                vy2 = Math.Abs(vx2);
+                vy[1] = Math.Abs(vy[1]);
             }
             else if (label2.Top > (ClientSize.Height - label2.Height))
             {
-                vy2 = -Math.Abs(vx2);
+                vy[1] = -Math.Abs(vy[1]);
             }
-            if (timer1.Enabled == false && timer2.Enabled == false && timer3.Enabled == false)
+            /*if (timer1.Enabled == false && timer2.Enabled == false && timer3.Enabled == false)
             {
                 timer2.Enabled = true;
-            }
+            }*/
         }
 
         private void timer3_Tick(object sender, EventArgs e)
         {
 
-            label3.Left += vx3;
-            label3.Top += vy3;
+            label3.Left += vx[2];
+            label3.Top += vy[2];
             if (label3.Left < 0)
             {
-                vx3 = Math.Abs(vx3);
+                vx[2] = Math.Abs(vx[2]);
             }
             else if (label3.Left > (ClientSize.Width - label3.Width))
             {
-                vx3 = -Math.Abs(vx3);
-                timer3.Enabled = false;
+                vx[2] = -Math.Abs(vx[2]);
+                //timer3.Enabled = false;
             }
             if (label3.Top < 0)
             {
-                vy3 = Math.Abs(vx3);
+                vy[2] = Math.Abs(vx[2]);
             }
             else if (label3.Top > (ClientSize.Height - label3.Height))
             {
-                vy3 = -Math.Abs(vx3);
+                vy[2] = -Math.Abs(vx[2]);
             }
-            if (timer1.Enabled == false && timer2.Enabled == false && timer3.Enabled == false)
+            /*if (timer1.Enabled == false && timer2.Enabled == false && timer3.Enabled == false)
             {
                 timer3.Enabled = true;
-            }
+            }*/
         }
     }
 }
