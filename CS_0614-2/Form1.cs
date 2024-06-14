@@ -5,8 +5,9 @@ namespace CS_0614_2
     public partial class Form1 : Form
     {
         static Random random = new Random();
-        int [] vx = new int[3];
-        int [] vy = new int[3]; 
+        int[] vx = new int[3];
+        int[] vy = new int[3];
+        
 
         /*int vx1 = random.Next(-10, 10);
         int vx2 = random.Next(-10, 10);
@@ -25,12 +26,18 @@ namespace CS_0614_2
         {
             InitializeComponent();
 
-            vx[0] = random.Next(-10, 11);
+            for (int i = 0; i < 3; i++)
+            {
+                vx[i] = random.Next(-10, 11);
+                vy[i] = random.Next(-10, 11);
+            }
+
+            /*vx[0] = random.Next(-10, 11);
             vy[0] = random.Next(-10, 11);
             vx[1] = random.Next(-10, 11);
             vy[1] = random.Next(-10, 11);
             vx[2] = random.Next(-10, 11);
-            vy[2] = random.Next(-10, 11);
+            vy[2] = random.Next(-10, 11);*/
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -60,7 +67,7 @@ namespace CS_0614_2
             {
                 vy[0] = -Math.Abs(vy[0]);
             }
-
+            
             /*if (timer1.Enabled == false && timer2.Enabled == false && timer3.Enabled == false)
             {
                 timer1.Enabled = true;
@@ -75,11 +82,11 @@ namespace CS_0614_2
             label2.Top += vy[1];
             if (label2.Left < 0)
             {
-            vx[1] = Math.Abs(vx[1]);
+                vx[1] = Math.Abs(vx[1]);
             }
             else if (label2.Left > (ClientSize.Width - label2.Width))
             {
-            vx[1] = -Math.Abs(vx[1]);
+                vx[1] = -Math.Abs(vx[1]);
                 //timer2.Enabled = false;
             }
             if (label2.Top < 0)
@@ -90,6 +97,7 @@ namespace CS_0614_2
             {
                 vy[1] = -Math.Abs(vy[1]);
             }
+            
             /*if (timer1.Enabled == false && timer2.Enabled == false && timer3.Enabled == false)
             {
                 timer2.Enabled = true;
@@ -118,10 +126,19 @@ namespace CS_0614_2
             {
                 vy[2] = -Math.Abs(vx[2]);
             }
+            
             /*if (timer1.Enabled == false && timer2.Enabled == false && timer3.Enabled == false)
             {
                 timer3.Enabled = true;
             }*/
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            for (int i = 0; i < 10; i++)
+            {
+                MessageBox.Show($"{i}");
+            }
         }
     }
 }
