@@ -7,7 +7,7 @@ namespace CS_0614_2
         static Random random = new Random();
         int[] vx = new int[3];
         int[] vy = new int[3];
-        
+
 
         /*int vx1 = random.Next(-10, 10);
         int vx2 = random.Next(-10, 10);
@@ -67,7 +67,7 @@ namespace CS_0614_2
             {
                 vy[0] = -Math.Abs(vy[0]);
             }
-            
+
             /*if (timer1.Enabled == false && timer2.Enabled == false && timer3.Enabled == false)
             {
                 timer1.Enabled = true;
@@ -97,7 +97,7 @@ namespace CS_0614_2
             {
                 vy[1] = -Math.Abs(vy[1]);
             }
-            
+
             /*if (timer1.Enabled == false && timer2.Enabled == false && timer3.Enabled == false)
             {
                 timer2.Enabled = true;
@@ -126,7 +126,7 @@ namespace CS_0614_2
             {
                 vy[2] = -Math.Abs(vx[2]);
             }
-            
+
             /*if (timer1.Enabled == false && timer2.Enabled == false && timer3.Enabled == false)
             {
                 timer3.Enabled = true;
@@ -138,6 +138,23 @@ namespace CS_0614_2
             for (int i = 0; i < 10; i++)
             {
                 MessageBox.Show($"{i}");
+            }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            int i;
+            for (i = 0; i < 10; i++)
+            {
+                if (i == 2)
+                {
+                    continue;
+                }
+                if (i == 5)
+                {
+                    break;
+                }
+                MessageBox.Show(i.ToString());
             }
         }
     }
