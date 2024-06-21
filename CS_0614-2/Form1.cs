@@ -4,10 +4,12 @@ namespace CS_0614_2
 {
     public partial class Form1 : Form
     {
+        static int ChrMax => 100;
+
         static Random random = new Random();
-        int[] vx = new int[100];
-        int[] vy = new int[100];
-        Label[] labels = new Label[100];//100個の新しいラベルを作成する領域
+        int[] vx = new int[ChrMax];
+        int[] vy = new int[ChrMax];
+        Label[] labels = new Label[ChrMax];//100個の新しいラベルを作成する領域
 
 
         /*int vx1 = random.Next(-10, 10);
@@ -25,8 +27,9 @@ namespace CS_0614_2
         int vy3 = 10;*/
         public Form1()
         {
+
             InitializeComponent();
-            for (int i = 0; i < 100; i++)
+            for (int i = 0; i < ChrMax; i++)
             {
                 labels[i] = new Label();//1個のラベルを管理する領域
                 labels[i].AutoSize = true;
@@ -53,7 +56,7 @@ namespace CS_0614_2
                 Controls.Add(labels[i]);
                 labels[i].Font = new Font(
                     "Yu Gothic UI",
-                    15F,
+                    7F,
                     FontStyle.Regular,
                     GraphicsUnit.Point);
 
