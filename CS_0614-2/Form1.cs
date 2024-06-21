@@ -5,8 +5,9 @@ namespace CS_0614_2
     public partial class Form1 : Form
     {
         static Random random = new Random();
-        int[] vx = new int[3];
-        int[] vy = new int[3];
+        int[] vx = new int[100];
+        int[] vy = new int[100];
+        Label[] labels = new Label[100];//100ŒÂ‚ÌV‚µ‚¢ƒ‰ƒxƒ‹‚ğì¬‚·‚é—Ìˆæ
 
 
         /*int vx1 = random.Next(-10, 10);
@@ -25,8 +26,44 @@ namespace CS_0614_2
         public Form1()
         {
             InitializeComponent();
+            for (int i = 0; i < 100; i++)
+            {
+                labels[i] = new Label();//1ŒÂ‚Ìƒ‰ƒxƒ‹‚ğŠÇ—‚·‚é—Ìˆæ
+                labels[i].AutoSize = true;
+                if (i <= 20)
+                {
+                    labels[i].Text = "Ÿ";
+                }
+                else if(i<=40)
+                {
+                    labels[i].Text = "¡ ";
+                }
+                else if(i<=60)
+                {
+                    labels[i].Text = "œ";
+                }
+                else if(i<=80)
+                {
+                    labels[i].Text = "£";
+                }
+                else
+                {
+                    labels[i].Text = "¥";
+                }
+                Controls.Add(labels[i]);
+                labels[i].Font = new Font(
+                    "Yu Gothic UI",
+                    15F,
+                    FontStyle.Regular,
+                    GraphicsUnit.Point);
 
-            for (int i = 0; i < 3; i++)
+                labels[i].Left = random.Next(ClientSize.Width - labels[i].Width);
+                labels[i].Top = random.Next(ClientSize.Height - labels[i].Height);
+            }
+
+
+
+            for (int i = 0; i < 100; i++)
             {
                 vx[i] = random.Next(-10, 11);
                 vy[i] = random.Next(-10, 11);
@@ -47,26 +84,30 @@ namespace CS_0614_2
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            label1.Left += vx[0];
-            label1.Top += vy[0];
+            for (int i = 0; i < 100; i++)
+            {
+                labels[i].Left += vx[i];
+                labels[i].Top += vy[i];
 
-            if (label1.Left < 0)
-            {
-                vx[0] = Math.Abs(vx[0]);
+                if (labels[i].Left < 0)
+                {
+                    vx[i] = Math.Abs(vx[i]);
+                }
+                else if (labels[i].Left > (ClientSize.Width - labels[i].Width))
+                {
+                    vx[i] = -Math.Abs(vx[i]);
+                    //timer1.Enabled = false;
+                }
+                if (labels[i].Top < 0)
+                {
+                    vy[i] = Math.Abs(vy[i]);
+                }
+                else if (labels[i].Top > (ClientSize.Height - labels[i].Height))
+                {
+                    vy[i] = -Math.Abs(vy[i]);
+                }
             }
-            else if (label1.Left > (ClientSize.Width - label1.Width))
-            {
-                vx[0] = -Math.Abs(vx[0]);
-                //timer1.Enabled = false;
-            }
-            if (label1.Top < 0)
-            {
-                vy[0] = Math.Abs(vy[0]);
-            }
-            else if (label1.Top > (ClientSize.Height - label1.Height))
-            {
-                vy[0] = -Math.Abs(vy[0]);
-            }
+
 
             /*if (timer1.Enabled == false && timer2.Enabled == false && timer3.Enabled == false)
             {
@@ -74,10 +115,6 @@ namespace CS_0614_2
                 timer2.Enabled = true;
                 timer3.Enabled = true;
             }*/
-        }
-
-        private void timer2_Tick(object sender, EventArgs e)
-        {
             label2.Left += vx[1];
             label2.Top += vy[1];
             if (label2.Left < 0)
@@ -102,11 +139,6 @@ namespace CS_0614_2
             {
                 timer2.Enabled = true;
             }*/
-        }
-
-        private void timer3_Tick(object sender, EventArgs e)
-        {
-
             label3.Left += vx[2];
             label3.Top += vy[2];
             if (label3.Left < 0)
@@ -133,6 +165,17 @@ namespace CS_0614_2
             }*/
         }
 
+        private void timer2_Tick(object sender, EventArgs e)
+        {
+
+        }
+
+        private void timer3_Tick(object sender, EventArgs e)
+        {
+
+
+        }
+
         private void button1_Click(object sender, EventArgs e)
         {
             for (int i = 0; i < 10; i++)
@@ -146,7 +189,7 @@ namespace CS_0614_2
             int i;
             for (i = 0; i < 10; i++)
             {
-                if (i == 2)
+                if (i == 2 || i == 3)
                 {
                     continue;
                 }
@@ -156,6 +199,8 @@ namespace CS_0614_2
                 }
                 MessageBox.Show(i.ToString());
             }
+
+            MessageBox.Show($"after {i}");
         }
     }
 }
